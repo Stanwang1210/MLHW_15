@@ -166,16 +166,16 @@ class PolicyGradientNetwork(nn.Module):
                     
                     nn.Linear(8, 16),
                     nn.Tanh(),
-                    nn.BatchNorm1d(16),
+#                    nn.BatchNorm1d(16),
                     nn.Dropout(0.2),
                     
                     nn.Linear(16, 16),
                     nn.Tanh(),
-                    nn.BatchNorm1d(16),
+#                    nn.BatchNorm1d(16),
                     nn.Dropout(0.2),
                     
                     nn.Linear(16, 4),
-                    nn.BatchNorm1d(4),
+#                    nn.BatchNorm1d(4),
                     nn.Dropout(0.2)
         
                 )
@@ -208,7 +208,7 @@ class PolicyGradientAgent():
         self.optimizer.step()
 
     def sample(self, state):
-        action_prob = self.network(torch.FloatTensor(state).unsqueeze(0))
+        action_prob = self.network(torch.FloatTensor(state))
         action_dist = Categorical(action_prob)
         action = action_dist.sample()
         log_prob = action_dist.log_prob(action)
