@@ -270,7 +270,7 @@ for batch in prg_bar:
 plt.plot(avg_total_rewards)
 plt.title("Total Rewards")
 plt.show()
-
+plt.savefig("Total Rewards num_batch800.png")
 """另外，`avg_final_reward` 代表的是多個回合的平均 final rewards，而 final reward 即是 agent 在單一回合中拿到的最後一個 reward。
 如果同學們還記得環境給予登月小艇 reward 的方式，便會知道，不論**回合的最後**小艇是不幸墜毀、飛出畫面、或是靜止在地面上，都會受到額外地獎勵或處罰。
 也因此，final reward 可被用來觀察 agent 的「著地」是否順利等資訊。
@@ -279,7 +279,7 @@ plt.show()
 plt.plot(avg_final_rewards)
 plt.title("Final Rewards")
 plt.show()
-
+plt.savefig("Final Rewards num_batch800.png")
 """## 測試"""
 
 agent.network.eval()  # 測試前先將 network 切換為 evaluation 模式
