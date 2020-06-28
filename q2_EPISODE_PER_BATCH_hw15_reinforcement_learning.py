@@ -214,7 +214,7 @@ agent = PolicyGradientAgent(network)
 """
 
 agent.network.train()  # 訓練前，先確保 network 處在 training 模式
-EPISODE_PER_BATCH = 10  # 每蒐集 10 個 episodes 更新一次 agent
+EPISODE_PER_BATCH = 2  # 每蒐集 10 個 episodes 更新一次 agent
 NUM_BATCH = 400        # 總共更新 400 次
 
 avg_total_rewards, avg_final_rewards = [], []
@@ -268,8 +268,9 @@ for batch in prg_bar:
 """
 
 plt.plot(avg_total_rewards)
-plt.title("Total Rewards")
+plt.title("Total Rewards EPISODE_PER_BATCH = 2")
 plt.show()
+plt.savefig("Total Rewards EPISODE_PER_BATCH2.png")
 
 """另外，`avg_final_reward` 代表的是多個回合的平均 final rewards，而 final reward 即是 agent 在單一回合中拿到的最後一個 reward。
 如果同學們還記得環境給予登月小艇 reward 的方式，便會知道，不論**回合的最後**小艇是不幸墜毀、飛出畫面、或是靜止在地面上，都會受到額外地獎勵或處罰。
@@ -277,8 +278,9 @@ plt.show()
 """
 
 plt.plot(avg_final_rewards)
-plt.title("Final Rewards")
+plt.title("Final Rewards EPISODE_PER_BATCH = 2")
 plt.show()
+plt.savefig("Final Rewards EPISODE_PER_BATCH2.png")
 
 """## 測試"""
 
