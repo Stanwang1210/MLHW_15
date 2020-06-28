@@ -270,7 +270,7 @@ for batch in prg_bar:
     # 更新網路
     rewards = np.concatenate(rewards, axis=0)
     rewards = (rewards - np.mean(rewards)) / (np.std(rewards) + 1e-9)  # 將 reward 正規標準化
-    agent.learn(torch.stack(log_probs), torch.from_numpy(rewards))
+    agent.learn(torch.stack(log_probs).double(), torch.from_numpy(rewards).double())
 
 """### 訓練結果
 
